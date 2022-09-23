@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 import java.lang.*;
 
 @SuppressWarnings("unused")
-public class PageHome {
+public class SenaiBrowser {
 	public static void main(String[] args) throws InterruptedException {
 		try (Playwright playwright = Playwright.create()) {
 			Browser browser = playwright.chromium()
@@ -101,16 +101,16 @@ public class PageHome {
 					"Radiolox"
 			};
 
-//			for (int i = 0; i < lista.length; i++) {
-//				
-//				page.locator("#Busca1_txtFiltro").fill(lista[i]);
-//
-//				page.keyboard().press("Enter");
-//
-//				String response = page.locator(".lead").textContent();
-//				
-//				System.out.println("-----------------------" + "\n" + "Curso m pesquisa:" + lista[i] + "\n" + "Lead: " + response + "\n" + "Totalidade verdadeira: " + page.locator(".curso").allTextContents().size());
-//			};
+			for (int i = 0; i < lista.length; i++) {
+				
+				page.locator("#Busca1_txtFiltro").fill(lista[i]);
+
+				page.keyboard().press("Enter");
+
+				String response = page.locator(".lead").textContent();
+				
+				System.out.println("-----------------------" + "\n" + "Curso m pesquisa:" + lista[i] + "\n" + "Lead: " + response + "\n" + "Totalidade verdadeira: " + page.locator(".curso").allTextContents().size());
+			};
 			
 			//inicia-se testes dos botoes laterais.
 			
@@ -124,11 +124,11 @@ public class PageHome {
 			};
 			for (int i = 0; i < nome_lateral.length; i++) {
 				page.navigate("https://online.sp.senai.br/");
+				System.out.printf("Entrando no botao: %s", nome_lateral[i]);
 				List<String> botoes = page.locator("#nav").allTextContents();
 				System.out.println(botoes);
-//				page.locator(String.format("#%s", nome_lateral[i])).click();
 				page.locator(String.format("[title='%s']", nome_lateral[i])).click();
-//				System.out.printf();
+				System.out.printf("Entrando no botao: %s", nome_lateral[i]);
 				
 			}
 			page.navigate("https://online.sp.senai.br/");
