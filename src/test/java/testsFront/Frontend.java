@@ -56,12 +56,13 @@ public class Frontend {
 			page.locator("[ng-reflect-name='email']").fill("UsuarioDeTeste");
 			page.locator("[ng-reflect-name='password']").fill("senhadeteste");
 			page.locator("xpath=/html/body/app-root/app-createusr/main/div[2]/form/button").click();
+			System.out.println(page.locator(".erroOnLogin").textContent());
 			
 			System.out.println("Entrando na aba para deletar conta");
 			page.navigate("http://localhost:4200/deluser");
 			page.locator("[ng-reflect-name='email']").fill("UsuarioDeTeste");
 			page.locator("xpath=/html/body/app-root/app-delusr/main/div[2]/form/button").click();
-			System.out.println("Usuario deletado com sucesso");
+			System.out.println(page.locator(".erroOnLogin").textContent());
 
 		}
 	}
